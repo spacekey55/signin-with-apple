@@ -33,6 +33,7 @@ class SessionsController < ApplicationController
       p '[[[[[[[[[[[[[[[[[[[[[[[[[[[['
       p params[:code]
       p '[[[[[[[[[[[[[[[[[[[[[[[[[[[['
+      return
       @client.authorization_code = params[:code]
       token_response = @client.access_token!
       id_token_back_channel = token_response.id_token
