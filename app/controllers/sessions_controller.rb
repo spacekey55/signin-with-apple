@@ -30,6 +30,9 @@ class SessionsController < ApplicationController
   def callback
     if params[:code].present? && session.delete(:state) == params[:state]
       expected_nonce = session.delete(:nonce)
+      p '[[[[[[[[[[[[[[[[[[[[[[[[[[[['
+      p params[:code]
+      p '[[[[[[[[[[[[[[[[[[[[[[[[[[[['
       @client.authorization_code = params[:code]
       token_response = @client.access_token!
       id_token_back_channel = token_response.id_token
